@@ -3,10 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class InputManager : MonoBehaviour {
+  public static InputManager Instance;
   private PlayerControls playerControls;
 
   private void Awake() {
     playerControls = new PlayerControls();
+    if (Instance) {
+      Destroy(gameObject);
+      return;
+    }
+    DontDestroyOnLoad(gameObject);
+    Instance = this;
   }
 
   private void OnEnable() {

@@ -2,16 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(CharacterController))]
 public class PlayerController : MonoBehaviour {
+  [SerializeField] private float playerSpeed = 2.0f;
+  [SerializeField] private float jumpHeight = 1.0f;
+  [SerializeField] private float gravityValue = -9.81f;
+
   private CharacterController controller;
   private Vector3 playerVelocity;
   private bool groundedPlayer;
-  private float playerSpeed = 2.0f;
-  private float jumpHeight = 1.0f;
-  private float gravityValue = -9.81f;
+  private Transform cameraTransform;
 
   private void Start() {
     controller = GetComponent<CharacterController>();
+    Cursor.visible = false;
+    cameraTransform = Camera.main.transform;
   }
 
   void Update() {
@@ -20,15 +25,14 @@ public class PlayerController : MonoBehaviour {
       playerVelocity.y = 0f;
     }
 
-    Vector3 move = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+    Vector2 movement = InputManager.Instance.GetPlayerMovement();
+    Vector3 move = new Vector3(movement.x, 0f, movement.y);
+    move = cameraTransform.forward * move.z + cameraTransform.right * move.x;
+    move.y = 0f; // Y should always be 0 in a move, as jump is handled afterwards
     controller.Move(move * Time.deltaTime * playerSpeed);
 
-    if (move != Vector3.zero) {
-      gameObject.transform.forward = move;
-    }
-
     // Changes the height position of the player..
-    if (Input.GetButtonDown("Jump") && groundedPlayer) {
+    if (InputManager.Instance.playerJumpedThisFrame() && groundedPlayer) {
       playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
     }
 
