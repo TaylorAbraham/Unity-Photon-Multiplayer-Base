@@ -5,14 +5,14 @@ using UnityEngine;
 using System.IO;
 
 public class PlayerManager : MonoBehaviour {
-  PhotonView PV;
+  PhotonView pv;
 
   private void Awake() {
-    PV = GetComponent<PhotonView>();
+    pv = GetComponent<PhotonView>();
   }
 
   private void Start() {
-    if (PV.IsMine) {
+    if (pv.IsMine) {
       CreateController();
     }
   }
