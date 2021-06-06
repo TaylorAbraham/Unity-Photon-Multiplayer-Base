@@ -16,12 +16,12 @@ MonoBehaviour:
   enableExtendedColorPicker: 0
   editorHints: 0
   changeRootFolder: 1
-  rootFolder: Modern UI Pack/Prefabs/
+  rootFolder: 3rd Party/Modern UI Pack/Prefabs/
   animatedIconColor: {r: 1, g: 1, b: 1, a: 1}
-  contextBackgroundColor: {r: 0.21568628, g: 0.29411766, b: 0.37254903, a: 1}
+  contextBackgroundColor: {r: 0.2784314, g: 0.2784314, b: 0.2784314, a: 1}
   buttonThemeType: 0
-  buttonFont: {fileID: 11400000, guid: 84dd14695854bbc43a5faa24fcf93d0d, type: 2}
-  buttonFontSize: 22.5
+  buttonFont: {fileID: 11400000, guid: e6ce39cb514b6b14789a1d5bde8628da, type: 2}
+  buttonFontSize: 44
   buttonBorderColor: {r: 1, g: 1, b: 1, a: 1}
   buttonFilledColor: {r: 0.1764706, g: 0.25490198, b: 0.33333334, a: 1}
   buttonTextBasicColor: {r: 1, g: 1, b: 1, a: 1}
@@ -48,34 +48,29 @@ MonoBehaviour:
   selectorHighlightedColor: {r: 0.1764706, g: 0.25490198, b: 0.33333334, a: 1}
   hSelectorInvertAnimation: 0
   hSelectorLoopSelection: 1
-  inputFieldFont: {fileID: 11400000, guid: 4bd810f1cbcb0f446a8f5a31453e243f, type: 2}
-  inputFieldFontSize: 28
-  inputFieldColor: {r: 1, g: 1, b: 1, a: 1}
-  modalWindowTitleFont: {fileID: 11400000, guid: fa328c1ae3ffb6b4583cf371153b0be6,
-    type: 2}
-  modalWindowContentFont: {fileID: 11400000, guid: 4bd810f1cbcb0f446a8f5a31453e243f,
-    type: 2}
+  inputFieldFont: {fileID: 11400000, guid: b0d48e31cc377f8428894bfaeb02039d, type: 2}
+  inputFieldFontSize: 44
+  inputFieldColor: {r: 0, g: 0, b: 0, a: 1}
+  modalWindowTitleFont: {fileID: 11400000, guid: fa328c1ae3ffb6b4583cf371153b0be6, type: 2}
+  modalWindowContentFont: {fileID: 11400000, guid: 4bd810f1cbcb0f446a8f5a31453e243f, type: 2}
   modalThemeType: 0
   modalWindowTitleColor: {r: 1, g: 1, b: 1, a: 1}
   modalWindowDescriptionColor: {r: 1, g: 1, b: 1, a: 1}
   modalWindowIconColor: {r: 1, g: 1, b: 1, a: 1}
   modalWindowBackgroundColor: {r: 0.1764706, g: 0.25490198, b: 0.33333334, a: 1}
   modalWindowContentPanelColor: {r: 1, g: 1, b: 1, a: 0.019607844}
-  notificationTitleFont: {fileID: 11400000, guid: fa328c1ae3ffb6b4583cf371153b0be6,
-    type: 2}
+  notificationTitleFont: {fileID: 11400000, guid: fa328c1ae3ffb6b4583cf371153b0be6, type: 2}
   notificationTitleFontSize: 22.5
-  notificationDescriptionFont: {fileID: 11400000, guid: 2f17e8bb3967fe14093d5fec798fffd9,
-    type: 2}
+  notificationDescriptionFont: {fileID: 11400000, guid: 2f17e8bb3967fe14093d5fec798fffd9, type: 2}
   notificationDescriptionFontSize: 18
   notificationThemeType: 0
   notificationBackgroundColor: {r: 0.1764706, g: 0.25490198, b: 0.33333334, a: 1}
   notificationTitleColor: {r: 1, g: 1, b: 1, a: 1}
   notificationDescriptionColor: {r: 1, g: 1, b: 1, a: 1}
   notificationIconColor: {r: 1, g: 1, b: 1, a: 1}
-  progressBarLabelFont: {fileID: 11400000, guid: 84dd14695854bbc43a5faa24fcf93d0d,
-    type: 2}
+  progressBarLabelFont: {fileID: 11400000, guid: 84dd14695854bbc43a5faa24fcf93d0d, type: 2}
   progressBarLabelFontSize: 25
-  progressBarColor: {r: 1, g: 1, b: 1, a: 1}
+  progressBarColor: {r: 0.3137255, g: 0.5411765, b: 0.65882355, a: 1}
   progressBarBackgroundColor: {r: 1, g: 1, b: 1, a: 0.05882353}
   progressBarLoopBackgroundColor: {r: 1, g: 1, b: 1, a: 1}
   progressBarLabelColor: {r: 1, g: 1, b: 1, a: 1}
