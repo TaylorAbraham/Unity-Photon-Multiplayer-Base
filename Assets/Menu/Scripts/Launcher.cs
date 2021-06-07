@@ -9,14 +9,16 @@ using System.Linq;
 public class Launcher : MonoBehaviourPunCallbacks {
   public static Launcher Instance;
 
+  [SerializeField] TMP_InputField playerNameInputField;
+  [SerializeField] TMP_Text titleWelcomeText;
   [SerializeField] TMP_InputField roomNameInputField;
-  [SerializeField] TMP_Text roomNameText;
-  [SerializeField] TMP_Text errorText;
   [SerializeField] Transform roomListContent;
   [SerializeField] GameObject roomListItemPrefab;
+  [SerializeField] TMP_Text roomNameText;
   [SerializeField] Transform playerListContent;
   [SerializeField] GameObject playerListItemPrefab;
   [SerializeField] GameObject startGameButton;
+  [SerializeField] TMP_Text errorText;
 
   private void Awake() {
     Instance = this;
@@ -35,9 +37,26 @@ public class Launcher : MonoBehaviourPunCallbacks {
   }
 
   public override void OnJoinedLobby() {
-    MenuManager.Instance.OpenMenu("title");
+    if (PhotonNetwork.NickName == "") {
+      PhotonNetwork.NickName = "Player " + Random.Range(0, 1000).ToString(); // Set a default nickname, just as a backup
+      MenuManager.Instance.OpenMenu("name");
+    } else {
+      MenuManager.Instance.OpenMenu("title");
+    }
     Debug.Log("Joined lobby");
-    PhotonNetwork.NickName = "Player " + Random.Range(0, 1000).ToString();
+  }
+
+  public void SetName() {
+    string name = playerNameInputField.text;
+    if (!string.IsNullOrEmpty(name)) {
+      PhotonNetwork.NickName = name;
+      titleWelcomeText.text = $"Welcome, {name}!";
+      MenuManager.Instance.OpenMenu("title");
+      playerNameInputField.text = "";
+    } else {
+      Debug.Log("No player name entered");
+      // TODO: Display an error to the user
+    }
   }
 
   public void CreateRoom() {
@@ -47,6 +66,7 @@ public class Launcher : MonoBehaviourPunCallbacks {
       roomNameInputField.text = "";
     } else {
       Debug.Log("No room name entered");
+      // TODO: Display an error to the user
     }
   }
 
@@ -109,5 +129,9 @@ public class Launcher : MonoBehaviourPunCallbacks {
     // 1 is used as the build index of the game scene, defined in the build settings
     // Use this instead of scene management so that *everyone* in the lobby goes into this scene
     PhotonNetwork.LoadLevel(1);
+  }
+
+  public void QuitGame() {
+    Application.Quit();
   }
 }
